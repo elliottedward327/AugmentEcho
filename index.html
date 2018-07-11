@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Fortnite Stats</title>
+
+    <style>
+        @font-face {
+            font-family: "Burbank";
+            src: url("Burbank.otf");
+        }
+
+        :root {
+            --size: 50px;
+        }
+
+        html, body {
+            margin: 0;
+            height: 100%;
+            text-align: center;
+        }
+
+        .stats-wrapper {
+            font-family: "Burbank";
+            text-shadow: 0 0 5px #000000,
+                         0 0 5px #000000,
+                         0 0 5px #000000,
+                         0 0 5px #000000,
+                         0 0 5px #000000,
+                         0 0 5px #000000,
+                         0 0 5px #000000,
+                         0 0 5px #000000;
+            color: #EDE734;
+            display: inline-block;
+        }
+
+        .stats-section {
+            display: inline-block;
+            padding: 10px;
+        }
+
+        .stats-value,
+        .stats-label {
+            margin: 0;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        .stats-value {
+            font-size: var(--size);
+            margin-bottom: calc((var(--size) / 4) * -1);
+        }
+
+        .stats-label {
+            font-size: calc(var(--size) / 2);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="stats-wrapper">
+        <div class="stats-section">
+            <p class="stats-value">226</p>
+            <p class="stats-label">Lifetime Wins</p>
+        </div>
+        <div class="stats-section">
+            <p class="stats-value">~20%</p>
+            <p class="stats-label">Solo Win Rate</p>
+        </div>
+        <div class="stats-section">
+            <p class="stats-value">0</p>
+            <p class="stats-label">Wins Today</p>
+        </div>
+        <div class="stats-section">
+            <p class="stats-value">6035+</p>
+            <p class="stats-label">Lifetime Kills</p>
+        </div>
+    </div>
+</body>
+
+</html>
