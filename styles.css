@@ -44,17 +44,17 @@ footer {
     padding: 5%;
     color: #FFF;
 }
-.fa {
+.fab {
     padding: 20px;
     font-size: 30px;
     color: #F05300;
 }
-.fa:hover {
+.fab:hover {
     color: #404040;
     text-decoration: none;
 }
 @media (max-width: 900px) {
-    .fa {
+    .fab {
         font-size: 20px;
         padding: 10px;
     }
