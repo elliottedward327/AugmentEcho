@@ -30,6 +30,25 @@
       .navbar-inverse .navbar-nav li a {
           color: #D5D5D5;
       }
+      .carousel-caption {
+          top: 50%;
+          transform: translateY(-50%);
+          text-transform: uppercase;
+      }
+      .btn {
+          font-size: 18px;
+          color: #F05300;
+          padding: 12px 22px;
+          background: #404040;
+          border: 2px solid #000;
+      }
+
+      @media (max-width: 600px) {
+          .carousel-caption {
+              display: none;
+          }
+      }
+
   </style>
 </head>
 <body>
@@ -62,7 +81,7 @@
         </ol>
         <div class="carousel-inner" role="listbox">
             <div class="item active">
-                <img src="img/abc.png">
+                <img src="img/Intro Splash.jpg">
                 <div class="carousel-caption">
                     <h1 get to know Augment Echo></h1>
                     <br>
@@ -70,10 +89,10 @@
                 </div> 
             </div> <!-- End Active -->
             <div class="item">
-                <img src="img/def.png">
+                <img src="img/Away Splash.jpg">
             </div>
             <div class="item">
-                <img src="img/xyz.png">
+                <img src="img/Outro Splash.jpg">
             </div>
         </div>
         <!-- Start Slider COntrols -->
@@ -86,5 +105,36 @@
                 <span class="sr-only">Next</span>
         </a>
     </div> <!-- End Slider -->
+
+    <div class="contained text-center">
+        <h2>Find Augment Echo</h2>
+        <div class="row">
+            <div class="col-sm-4">
+                <img src="img/Twitch.png" id="icon">
+                <h4>Twitch</h4>
+            </div>
+            <div class="col-sm-4">
+                <img src="img/YouTube.png" id="icon">
+                <h4>YouTube</h4>
+            </div>
+            <div class="col-sm-4">
+                <img src="img/Mixer.png" id="icon">
+                <h4>Mixer</h4>
+            </div>
+            <div class="col-sm-4">
+                <img src="img/Reddit.png" id="icon">
+                <h4>Reddit</h4>
+            </div>
+            <div class="col-sm-4">
+                <img src="img/Twitter.png" id="icon">
+                <h4>Twitter</h4>
+            </div>
+            <div class="col-sm-4">
+                <img src="img/Donate.png" id="icon">
+                <h4>Donate</h4>
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>
