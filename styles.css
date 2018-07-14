@@ -57,6 +57,9 @@ footer {
     font-family: burbank;
     src: url(img/Burbank.otf);
 }
+* {
+    font-family: burbank;
+}
 @media (max-width: 900px) {
     .fab {
         font-size: 20px;
