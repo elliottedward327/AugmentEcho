@@ -55,7 +55,7 @@ footer {
 }
 @font-face {
     font-family: burbank;
-    src: url(img/Burbank.otf);
+    src: url(Burbank.otf);
 }
 * {
     font-family: burbank;
