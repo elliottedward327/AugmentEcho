@@ -5,7 +5,12 @@
     color: #FFF;
     padding: 1% 0;
     font-size: 2.0em;
-    border:2px solid #000;
+    border: 2px solid #000;
+    text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;  
 }
 .navbar-brand {
     float: left;
@@ -20,19 +25,30 @@
     color: #D5D5D5;
     background-color: #404040;
 }
+.carousel {
+    border: 2px solid #000;
+}
 .carousel-caption {
     top: 50%;
     transform: translateY(-50%);
     text-transform: uppercase;
 }
 .btn {
-    font-size: 30px;
+    font-size: 50px;
     color: #F05300;
     padding: 12px 22px;
     background: #404040;
     border: 2px solid #000;
 }
-.container {
+button:hover, input.button:hover, a.button:hover, input[type="submit"]:hover {
+    background:#F05300;
+    border-color:#000;
+    color :#000;
+}
+div font {
+    font-size: inherit;
+}
+.container { /* text paragraphs */
     margin: 4% auto;
 }
 #icon {
@@ -45,12 +61,34 @@ body {
 }
 h2 {
     font-size: 5.0em;
+    text-shadow:
+    -2px -2px 0 #000,
+    2px -2px 0 #000,
+    -2px 2px 0 #000,
+    2px 2px 0 #000;  
+}
+h3 {
+    font-size: 4.0em;
+    text-shadow:
+    -2px -2px 0 #000,
+    2px -2px 0 #000,
+    -2px 2px 0 #000,
+    2px 2px 0 #000;  
+}
+h4 {
+    font-size: 2.0em;
+    text-shadow:
+    -2px -2px 0 #000,
+    2px -2px 0 #000,
+    -2px 2px 0 #000,
+    2px 2px 0 #000;  
 }
 footer {
     width: 100%;
     background: #404040;
-    padding: 5%;
+    padding: 2%;
     color: #FFF;
+    border: 2px solid #000;
 }
 .fab {
     padding: 20px;
