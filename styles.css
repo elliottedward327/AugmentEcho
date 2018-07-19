@@ -50,14 +50,16 @@ div font {
     font-size: inherit;
 }
 .container { /* text paragraphs */
-    margin: 4% auto;
+    margin: auto;
 }
 #icon {
     max-width: 350px;
-    margin: 1% auto;
+    margin: 5% 5%;
 }
 body {
     background: #404040;
+    /* background-image: url(img/Slate.png);
+    background-repeat: no-repeat; */
     color: #FFF;
 }
 p {
