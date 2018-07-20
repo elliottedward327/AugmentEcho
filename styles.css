@@ -49,6 +49,22 @@ button:hover, input.button:hover, a.button:hover, input[type="submit"]:hover {
 div font {
     font-size: inherit;
 }
+.videoWrapper {
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    max-width: 1280px;
+    position: relative;
+	padding-bottom: 56.25%; /* 16:9 */
+}
+.videoWrapper iframe {
+    position: absolute;
+	width: 100%;
+    height: 100%;
+    max-width: 1280px;
+    max-height: 720px;
+    border: #000 solid 4px;
+}
 .container { /* text paragraphs */
     margin: auto;
 }
