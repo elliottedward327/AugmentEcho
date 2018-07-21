@@ -40,6 +40,25 @@
     transform: translateY(-50%);
     text-transform: uppercase;
 }
+.carousel-indicators li {
+    display: inline-block;
+    width: 20px;
+    height: 5px;
+    margin: 10px;
+    text-indent: 0;
+    cursor: pointer;
+    border: #FFF solid 1px;
+    border-radius: 10%;
+    background-color: rgba(255, 0, 0, 0);
+list-style-type: square;
+}
+.carousel-indicators .active {
+    width: 20px;
+    height: 7px;
+    margin: 10px;
+    background-color: #F05300;
+    border: #000 solid 1px;
+}
 .btn {
     font-size: 50px;
     color: #F05300;
