@@ -28,6 +28,12 @@
 .carousel {
     border: 2px solid #000;
 }
+.carousel-inner {
+    width: 1280px;
+    margin: auto;
+    border-left: #000 solid 2px;
+    border-right: #000 solid 2px;
+}
 .carousel-caption {
     top: 50%;
     transform: translateY(-50%);
@@ -50,12 +56,14 @@ div font {
     font-size: inherit;
 }
 .videoWrapper {
-    width: 100%;
-    height: 100%;
-    margin: auto;
-    max-width: 1280px;
     position: relative;
-	padding-bottom: 56.25%; /* 16:9 */
+    width: 1280px;
+    height: 0;
+    max-width: 100%;
+    float: none;
+    clear: both;
+    margin: 0 auto;
+	padding-bottom: 56.25%; /* 16:9 -- This allows the correct responsive size for the video but also adds a large blank area at the bottom... */
 }
 .videoWrapper iframe {
     position: absolute;
@@ -140,9 +148,12 @@ footer {
         display: none;
     }
   #icon {
-      max-width: 150px;
+      max-width: 250px;
   }  
   h2 {
-      font-size: 2.0em;
+      font-size: 3.0em;
+  }
+  h3 {
+      font-size: 3.0em;
   }
 }
