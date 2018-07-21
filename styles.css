@@ -98,7 +98,7 @@ div font {
 }
 #icon {
     max-width: 350px;
-    margin: 5% 5%;
+    margin: 5% auto;
 }
 body {
     background: #404040;
