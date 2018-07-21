@@ -29,7 +29,8 @@
     border: 2px solid #000;
 }
 .carousel-inner {
-    width: 1280px;
+    width: 100%;
+    max-width: 1500px;
     margin: auto;
     border-left: #000 solid 2px;
     border-right: #000 solid 2px;
