@@ -96,6 +96,10 @@ div font {
 .container { /* text paragraphs */
     margin: auto;
 }
+.gallery {
+    width: 100%;
+    display: block;
+}
 #icon {
     max-width: 350px;
     margin: 5% auto;
