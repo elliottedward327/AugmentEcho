@@ -157,10 +157,18 @@ footer {
 * {
     font-family: burbank;
 }
+@media (max-width:991px) {
+    .align-text-center {
+        text-align: center;
+    }
+}
 @media (max-width: 900px) {
     .fab {
         font-size: 30px;
         padding: 10px;
+    }
+    .align-text-center {
+        text-align: center;
     }
 }
 @media (max-width: 600px) {
