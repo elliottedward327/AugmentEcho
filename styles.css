@@ -96,7 +96,7 @@ div font {
 .container { /* text paragraphs */
     margin: auto;
 }
-.gallery {
+.gallery img {
     width: 100%;
     display: block;
 }
