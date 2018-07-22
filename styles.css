@@ -171,9 +171,12 @@ footer {
         max-width: 250px;
     }  
     h2 {
-        font-size: 3.0em;
+        font-size: 5.0em;
     }
     h3 {
-        font-size: 3.0em;
+        font-size: 4.0em;
+    }
+    .align-text-center {
+        text-align: center;
     }
 }
