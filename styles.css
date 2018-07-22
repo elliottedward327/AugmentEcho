@@ -77,9 +77,9 @@ div font {
 }
 .videoWrapper {
     position: relative;
-    width: 1280px;
+    width: 100%;
     height: 0;
-    max-width: 100%;
+    max-width: 1280px;
     float: none;
     clear: both;
     margin: 0 auto;
@@ -167,13 +167,13 @@ footer {
     .carousel-caption {
         display: none;
     }
-  #icon {
-      max-width: 250px;
-  }  
-  h2 {
-      font-size: 3.0em;
-  }
-  h3 {
-      font-size: 3.0em;
-  }
+    #icon {
+        max-width: 250px;
+    }  
+    h2 {
+        font-size: 3.0em;
+    }
+    h3 {
+        font-size: 3.0em;
+    }
 }
