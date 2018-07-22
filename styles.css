@@ -50,7 +50,7 @@
     border: #FFF solid 1px;
     border-radius: 10%;
     background-color: rgba(255, 0, 0, 0);
-list-style-type: square;
+    list-style-type: square;
 }
 .carousel-indicators .active {
     width: 20px;
@@ -190,5 +190,24 @@ footer {
     }
     .align-text-center {
         text-align: center;
+    }
+    .carousel-indicators li {
+        display: inline-block;
+        width: 10px;
+        height: 2.5px;
+        margin: 5px;
+        text-indent: 0;
+        cursor: pointer;
+        border: #FFF solid 1px;
+        border-radius: 10%;
+        background-color: rgba(255, 0, 0, 0);
+        list-style-type: square;
+    }
+    .carousel-indicators .active {
+        width: 10px;
+        height: 3.5px;
+        margin: 5px;
+        background-color: #F05300;
+        border: #F05300 solid 1px;
     }
 }
