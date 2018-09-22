@@ -156,11 +156,11 @@ footer {
     text-decoration: none;
 }
 @font-face {
-    font-family: burbank;
-    src: url(Burbank.otf);
+    font-family: Burbank;
+    src: url("../assets/fonts/Burbank.otf");
 }
 * {
-    font-family: burbank;
+    font-family: Burbank;
 }
 @media (max-width:991px) {
     .align-text-center {
