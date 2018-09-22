@@ -10,7 +10,7 @@
     -1px -1px 0 #000,
     1px -1px 0 #000,
     -1px 1px 0 #000,
-    1px 1px 0 #000;  
+    1px 1px 0 #000;
 }
 .navbar-brand { /* /AugmentEcho logo */
     float: left;
@@ -96,6 +96,11 @@ div font {
 .container { /* text paragraphs */
     margin: auto;
 }
+.twitter-wrapper {
+    overflow-y: scroll;
+    height: 100rem;
+    margin-bottom: 3rem
+}
 #icon {
     max-width: 350px;
     margin: 5% auto;
@@ -116,7 +121,7 @@ h2 {
     -2px -2px 0 #000,
     2px -2px 0 #000,
     -2px 2px 0 #000,
-    2px 2px 0 #000;  
+    2px 2px 0 #000;
 }
 h3 {
     font-size: 4.0em;
@@ -124,7 +129,7 @@ h3 {
     -2px -2px 0 #000,
     2px -2px 0 #000,
     -2px 2px 0 #000,
-    2px 2px 0 #000;  
+    2px 2px 0 #000;
 }
 h4 {
     font-size: 2.0em;
@@ -132,7 +137,7 @@ h4 {
     -2px -2px 0 #000,
     2px -2px 0 #000,
     -2px 2px 0 #000,
-    2px 2px 0 #000;  
+    2px 2px 0 #000;
 }
 footer {
     width: 100%;
@@ -177,7 +182,7 @@ footer {
     }
     #icon {
         max-width: 250px;
-    }  
+    }
     h2 {
         font-size: 5.0em;
     }
