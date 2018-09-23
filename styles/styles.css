@@ -1,3 +1,11 @@
+@font-face {
+    font-family: Burbank;
+    src: url("../assets/fonts/Burbank.otf");
+}
+@font-face {
+    font-family: Ethnocentric;
+    src: url("../assets/fonts/Ethnocentric.ttf");
+}
 .navbar {
     margin-bottom: 0;
     border-radius: 0;
@@ -12,11 +20,6 @@
     -1px 1px 0 #000,
     1px 1px 0 #000;
 }
-.navbar-brand { /* /AugmentEcho logo */
-    float: left;
-    min-height: 55px;
-    padding: 0 15px 5px;
-}
 .navbar-inverse .navbar-nav .active a, .navbar-inverse .navbar-nav .active a:focus, .navbar-inverse .navbar-nav .active a:hover {
     color: #F05300;
     background: none;
@@ -24,6 +27,14 @@
 .navbar-inverse .navbar-nav li a {
     color: #D5D5D5;
     background: none;
+}
+.navbar-brand {
+    display: block;
+    float: left;
+    font-size: 4rem;
+    text-transform: uppercase;
+    font-family: Ethnocentric, sans-serif;
+    color: #F05300 !important;
 }
 .carousel {
     border: 2px solid #000;
@@ -155,12 +166,8 @@ footer {
     color: #FFF;
     text-decoration: none;
 }
-@font-face {
-    font-family: Burbank;
-    src: url("../assets/fonts/Burbank.otf");
-}
 * {
-    font-family: Burbank;
+    font-family: Burbank, sans-serif;
 }
 @media (max-width:991px) {
     .align-text-center {
