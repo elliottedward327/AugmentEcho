@@ -104,6 +104,10 @@ div font {
     max-height: 720px;
     border: #000 solid 4px;
 }
+#twitch-embed,
+#twitch-embed-title {
+    display: none;
+}
 .container { /* text paragraphs */
     margin: auto;
 }
