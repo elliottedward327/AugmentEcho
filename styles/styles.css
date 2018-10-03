@@ -21,9 +21,12 @@
     1px 1px 0 #000;
 }
 .navbar-brand { /* /AugmentEcho logo */
-    float: left;
     min-height: 55px;
     padding: 0 15px 5px;
+}
+.navbar-brand img {
+    max-width: 100%;
+    height: auto;
 }
 .navbar-inverse .navbar-nav .active a, .navbar-inverse .navbar-nav .active a:focus, .navbar-inverse .navbar-nav .active a:hover {
     color: #F05300;
