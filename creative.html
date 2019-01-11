@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Videos</title>
+    <title>Creative</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -30,8 +30,8 @@
                     <li><a href="index.html">Home</a></li>
                     <li><a href="news.html">News</a></li>
                     <li><a href="sites.html">Sites</a></li>
-                    <li class="active"><a href="videos.html">Videos</a></li>
-                    <li><a href="creative.html">Creative</a></li>
+                    <li><a href="videos.html">Videos</a></li>
+                    <li class="active"><a href="creative.html">Creative</a></li>
                     <li><a href="shop.html">Item Shop</a></li>
                     <li><a href="communities.html">Communities</a></li>
                     <li><a href="stats.html">Stats</a></li>
@@ -44,38 +44,34 @@
         </div>
     </nav>
 
+    <div class="container text-center">
+        <h2>
+            Fortnite Creative
+        </h2>
+        <h3 style="font-size: 45px; color: #F05300; text-decoration: none; text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">
+            Marauder Metro
+        </h3>
+        <h4>Literally Under Construction - Check Back Soon!</h4>
+    </div>
     <div class="container">
-        <div class="text-center">
-            <h2>The Reel</h2>
-        </div>
         <div class="videoWrapper">
-            <iframe src="https://www.youtube.com/embed?listType=playlist&list=PLQPb3bQsjrt5Jr2_yLQdATmIINlwJgfta"
+            <iframe src="https://www.youtube.com/embed?"
                 frameborder="0" allow="autoplay; encrypted-media" allowfullscreen="true">
             </iframe>
         </div>
-        <br>
-        <div class="text-center">
-            <h2>Fortnite Episodes Playlist</h2>
-        </div>
-        <div class="videoWrapper">
-            <iframe src="https://www.youtube.com/embed?listType=playlist&list=PLQPb3bQsjrt6KUOkO7S7qq3u-YHFtHT5o"
-                frameborder="0" allow="autoplay; encrypted-media" allowfullscreen="true">
-            </iframe>
-        </div>
-        <br>
-        <div class="text-center">
-            <h2 id="twitch-embed-title">Live on Twitch</h2>
-        </div>
-        <div id="twitch-embed" class="videoWrapper"></div>
     </div>
     <br>
-    <div class="text-center">
-        <p>
-            <a href="https://www.twitch.tv/augmentecho/clips" style="font-size: 80px; color: #F05300;
-            text-decoration: none; text-shadow: -1px -1px 0 #000,
-            1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">Twitch
-                Clips</a>
-        </p>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <br>
+                <p>
+                    I'm gonna say some things here about my attempt at a Block worthy of a place on the Fortnite island.  
+                    Hours taken... build process... the Reddit post promoting it... and maybe a gallery.  Check back soon!
+                </p>
+            </div>
+        </div>
     </div>
     <br>
 
@@ -102,24 +98,6 @@
         </div>
     </footer>
 
-    <!-- Load the Twitch embed script -->
-    <script src="https://embed.twitch.tv/embed/v1.js"></script>
-
-    <!-- Create a Twitch.Embed object that will render within the "twitch-embed" root element. -->
-    <script type="text/javascript">
-        const embed = new Twitch.Embed("twitch-embed", {
-            width: 1920,
-            height: 1080,
-            channel: "AugmentEcho",
-            layout: "video",
-            theme: "dark"
-        });
-
-        embed.addEventListener(Twitch.Embed.VIDEO_READY, () => {
-            document.getElementById("twitch-embed").style.display = "block";
-            document.getElementById("twitch-embed-title").style.display = "block";
-        });
-    </script>
 </body>
 
 </html>
