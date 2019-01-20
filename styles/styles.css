@@ -238,3 +238,12 @@ footer {
     width: 100%;
     height: 100%;
 }
+
+.carousel-indicators {
+    bottom: 50px;
+}
+
+.carousel-indicators > li, .carousel-indicators > li.active {
+    border-radius: 5px;
+    height: 10px;
+}
