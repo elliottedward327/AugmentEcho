@@ -58,7 +58,7 @@
         </ol>
         <div class="carousel-inner" role="listbox">
             <div class="item active">
-                <iframe src="https://clips.twitch.tv/embed?clip=AmazonianPlayfulOrangeBloodTrail" frameborder="0" allowfullscreen="true" height="835" width="1496"></iframe>
+                <div id="twitch-clip-embed"></div>
             </div>
             <div class="item">
                 <a href="https://twitch.tv/AugmentEcho" target="_blank">
@@ -130,6 +130,50 @@
         </div>
     </footer>
 
+    <script>
+        const tag = document.createElement('script');
+        const firstScriptTag = document.getElementsByTagName('script')[0];
+        const carousel = $("#myCarousel");
+
+        carousel.carousel();
+        // carousel.on("slide.bs.carousel", () => {
+        //     player.pausePlayer();
+        // });
+        
+        let player;
+        let done = false;
+
+        tag.src = "https://www.youtube.com/iframe_api";
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+        
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('twitch-clip-embed', {
+                height: "935",
+                width: "1496",
+                events: {
+                    onReady: (event) => {
+                        event.target.cuePlaylist({
+                            list: "PLQPb3bQsjrt4224S1558-xfumuj4PFcK_"
+                        });
+
+                        // event.target.playVideo();
+                    },
+                    onStateChange: (event) => {
+                        if (event.data == YT.PlayerState.PLAYING && !done) {
+                            setTimeout(stopVideo, 6000);
+                            done = true;
+                        }
+                    },
+                }
+            });
+        }
+
+        function stopVideo() {
+            player.stopVideo();
+        }
+
+
+    </script>
 </body>
 
 </html>
