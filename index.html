@@ -145,7 +145,10 @@
             pause: null // Don't pause the carousel on hover
         });
 
+        const carouselControls = $("#myCarousel > .carousel-control");
+
         let player;
+        let timeout;
 
         // Handle when moving away from the video player
         carousel.on("slide.bs.carousel", (event) => {
@@ -165,7 +168,7 @@
 
             // Initialize the YT player
             player = new YT.Player("twitch-clip-embed", {
-                width: 1280, // Fuck
+                width: 1280,
                 height: 720,
                 events: {
                     onReady: (event) => { // The embedded player is ready to load a video
@@ -177,21 +180,34 @@
                         // console.log(["unstarted", "ended", "playing", "paused", "buffering", undefined, "cued"][event.data + 1]);
                         switch (event.data) {
                             case YT.PlayerState.UNSTARTED:
-                            // Fallthrough
-                            case YT.PlayerState.CUED:
-                                setTimeout(() => event.target.playVideo(), 1000);
-                            // Fallthrough
+                                clearTimeout(timeout);
+                                event.target.playVideo(); // Autoplay
+                                break;
                             case YT.PlayerState.PLAYING:
-                                carousel.carousel(0); // Move to the video and stop the carousel
+                                clearTimeout(timeout);
+                                carousel.carousel(0);
                                 carousel.carousel("pause");
+                                carouselControls[0].style.display = "none"; // Hide controls
+                                carouselControls[1].style.display = "none";
                                 break;
                             case YT.PlayerState.PAUSED:
-                            // Fallthrough
+                                clearTimeout(timeout);
+                                carouselControls[0].style.display = "inline-block"; // Show controls
+                                carouselControls[1].style.display = "inline-block";
+                                timeout = setTimeout(() => {
+                                    carousel.carousel("next");
+                                    carousel.carousel("cycle");
+                                }, 1000);
+                                break;
                             case YT.PlayerState.ENDED:
-                                setTimeout(() => carousel.carousel("next"), 1000);
-                                carousel.carousel("cycle");
+                                clearTimeout(timeout);
+                                event.target.seekTo(0); // Back to video start
+                                event.target.pauseVideo(); // Trigger pause event
                                 break;
                             case YT.PlayerState.BUFFERING:
+                                clearTimeout(timeout);
+                                carouselControls[0].style.display = "inline-block"; // Show controls
+                                carouselControls[1].style.display = "inline-block";
                                 break; // Future: make the carousel cycle while buffering
                         }
                     }
