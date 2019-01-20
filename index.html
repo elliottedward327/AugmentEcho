@@ -131,48 +131,70 @@
     </footer>
 
     <script>
-        const tag = document.createElement('script');
-        const firstScriptTag = document.getElementsByTagName('script')[0];
-        const carousel = $("#myCarousel");
-
-        carousel.carousel();
-        // carousel.on("slide.bs.carousel", () => {
-        //     player.pausePlayer();
-        // });
-        
-        let player;
-        let done = false;
-
+        // Load Google's JavaScript asynchronously (needs improvement, use events)
+        const tag = document.createElement("script");
         tag.src = "https://www.youtube.com/iframe_api";
+        const firstScriptTag = document.getElementsByTagName("script")[0];
         firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-        
-        function onYouTubeIframeAPIReady() {
-            player = new YT.Player('twitch-clip-embed', {
-                height: "935",
-                width: "1496",
-                events: {
-                    onReady: (event) => {
-                        event.target.cuePlaylist({
-                            list: "PLQPb3bQsjrt4224S1558-xfumuj4PFcK_"
-                        });
 
-                        // event.target.playVideo();
+        // Initialize the carousel
+        const carousel = $("#myCarousel");
+        carousel.carousel({
+            pause: null // Don't pause the carousel on hover
+        });
+
+        let player;
+
+        // Handle when moving away from the video player
+        carousel.on("slide.bs.carousel", (event) => {
+            if (!event.relatedTarget.querySelector("#twitch-clip-embed"))
+                player.pauseVideo();
+        });
+
+        // Handle when moving towards the player
+        carousel.on("slid.bs.carousel", (event) => {
+            if (event.relatedTarget.querySelector("#twitch-clip-embed"))
+                player.playVideo();
+        });
+
+        // This is called when Google's code is ready
+        function onYouTubeIframeAPIReady() {
+            YT.PlayerState.UNSTARTED = -1; // Why does Google not provide this?
+
+            // Initialize the YT player
+            player = new YT.Player("twitch-clip-embed", {
+                width: "960", // Fuck
+                height: "540",
+                events: {
+                    onReady: (event) => { // The embedded player is ready to load a video
+                        event.target.cuePlaylist({
+                            list: "PLQPb3bQsjrt4224S1558-xfumuj4PFcK_" // Weekly clips playlist
+                        });
                     },
                     onStateChange: (event) => {
-                        if (event.data == YT.PlayerState.PLAYING && !done) {
-                            setTimeout(stopVideo, 6000);
-                            done = true;
+                        // console.log(["unstarted", "ended", "playing", "paused", "buffering", undefined, "cued"][event.data + 1]);
+                        switch (event.data) {
+                            case YT.PlayerState.UNSTARTED:
+                            // Fallthrough
+                            case YT.PlayerState.CUED:
+                            // Fallthrough
+                            case YT.PlayerState.PLAYING:
+                                carousel.carousel(0); // Move to the video and stop the carousel
+                                carousel.carousel("pause");
+                                break;
+                            case YT.PlayerState.PAUSED:
+                            // Fallthrough
+                            case YT.PlayerState.ENDED:
+                                setTimeout(() => carousel.carousel("next"), 1000);
+                                carousel.carousel("cycle");
+                                break;
+                            case YT.PlayerState.BUFFERING:
+                                break; // Future: make the carousel cycle while buffering
                         }
-                    },
+                    }
                 }
             });
         }
-
-        function stopVideo() {
-            player.stopVideo();
-        }
-
-
     </script>
 </body>
 
