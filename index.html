@@ -163,8 +163,8 @@
 
             // Initialize the YT player
             player = new YT.Player("twitch-clip-embed", {
-                width: "960", // Fuck
-                height: "540",
+                width: 1280, // Fuck
+                height: 720,
                 events: {
                     onReady: (event) => { // The embedded player is ready to load a video
                         event.target.cuePlaylist({
@@ -177,6 +177,7 @@
                             case YT.PlayerState.UNSTARTED:
                             // Fallthrough
                             case YT.PlayerState.CUED:
+                                setTimeout(() => event.target.playVideo(), 1000);
                             // Fallthrough
                             case YT.PlayerState.PLAYING:
                                 carousel.carousel(0); // Move to the video and stop the carousel
