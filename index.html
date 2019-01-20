@@ -58,7 +58,9 @@
         </ol>
         <div class="carousel-inner" role="listbox">
             <div class="item active">
-                <iframe src="https://clips.twitch.tv/embed?clip=AmazonianPlayfulOrangeBloodTrail" frameborder="0" allowfullscreen="true" height="835" width="1496"></iframe>
+                <div class="video-container">
+                    <div id="twitch-clip-embed"></div>
+                </div>
             </div>
             <div class="item">
                 <a href="https://twitch.tv/AugmentEcho" target="_blank">
@@ -130,6 +132,89 @@
         </div>
     </footer>
 
+    <script>
+        // Load Google's JavaScript asynchronously (needs improvement, use events)
+        const tag = document.createElement("script");
+        tag.src = "https://www.youtube.com/iframe_api";
+        const firstScriptTag = document.getElementsByTagName("script")[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+        // Initialize the carousel
+        const carousel = $("#myCarousel");
+        carousel.carousel({
+            pause: null // Don't pause the carousel on hover
+        });
+
+        const carouselControls = $("#myCarousel > .carousel-control");
+
+        let player;
+        let timeout;
+
+        // Handle when moving away from the video player
+        carousel.on("slide.bs.carousel", (event) => {
+            if (!event.relatedTarget.querySelector("#twitch-clip-embed"))
+                player.pauseVideo();
+        });
+
+        // Handle when moving towards the player
+        carousel.on("slid.bs.carousel", (event) => {
+            if (event.relatedTarget.querySelector("#twitch-clip-embed"))
+                player.playVideo();
+        });
+
+        // This is called when Google's code is ready
+        function onYouTubeIframeAPIReady() {
+            YT.PlayerState.UNSTARTED = -1; // Why does Google not provide this?
+
+            // Initialize the YT player
+            player = new YT.Player("twitch-clip-embed", {
+                width: 1280,
+                height: 720,
+                events: {
+                    onReady: (event) => { // The embedded player is ready to load a video
+                        event.target.cuePlaylist({
+                            list: "PLQPb3bQsjrt4224S1558-xfumuj4PFcK_" // Weekly clips playlist
+                        });
+                    },
+                    onStateChange: (event) => {
+                        // console.log(["unstarted", "ended", "playing", "paused", "buffering", undefined, "cued"][event.data + 1]);
+                        switch (event.data) {
+                            case YT.PlayerState.UNSTARTED:
+                                clearTimeout(timeout);
+                                event.target.playVideo(); // Autoplay
+                                break;
+                            case YT.PlayerState.PLAYING:
+                                clearTimeout(timeout);
+                                carousel.carousel(0);
+                                carousel.carousel("pause");
+                                carouselControls[0].style.display = "none"; // Hide controls
+                                carouselControls[1].style.display = "none";
+                                break;
+                            case YT.PlayerState.PAUSED:
+                                clearTimeout(timeout);
+                                carouselControls[0].style.display = "inline-block"; // Show controls
+                                carouselControls[1].style.display = "inline-block";
+                                timeout = setTimeout(() => {
+                                    carousel.carousel("next");
+                                    carousel.carousel("cycle");
+                                }, 1000);
+                                break;
+                            case YT.PlayerState.ENDED:
+                                clearTimeout(timeout);
+                                event.target.seekTo(0); // Back to video start
+                                event.target.pauseVideo(); // Trigger pause event
+                                break;
+                            case YT.PlayerState.BUFFERING:
+                                clearTimeout(timeout);
+                                carouselControls[0].style.display = "inline-block"; // Show controls
+                                carouselControls[1].style.display = "inline-block";
+                                break; // Future: make the carousel cycle while buffering
+                        }
+                    }
+                }
+            });
+        }
+    </script>
 </body>
 
 </html>
