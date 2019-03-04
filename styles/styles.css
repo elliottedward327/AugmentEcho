@@ -6,6 +6,10 @@
     font-family: Ethnocentric;
     src: url("../assets/fonts/Ethnocentric.ttf");
 }
+@font-face {
+    font-family: TTSquares;
+    src: url("../assets/fonts/TT Squares Condensed Bold.otf");
+}
 .navbar {
     margin-bottom: 0;
     border-radius: 0;
@@ -139,7 +143,7 @@ h2 {
     2px 2px 0 #000;
 }
 h5 {
-    font-family: "TT Squares Condensed Bold";
+    font-family: TTSquares;
     font-size: 5.0em;
     text-shadow:
     -2px -2px 0 #000,
