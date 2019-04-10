@@ -16,7 +16,7 @@
     background-color: #404040;
     color: #FFF;
     padding: 1% 0;
-    font-size: 2.0em;
+    font-size: 1.6em;
     border: 2px solid #000;
     text-shadow:
     -1px -1px 0 #000,
@@ -142,6 +142,15 @@ h2 {
     -2px 2px 0 #000,
     2px 2px 0 #000;
 }
+h6 {
+    font-family: Burbank;
+    font-size: 5.0em;
+    text-shadow:
+    -2px -2px 0 #000,
+    2px -2px 0 #000,
+    -2px 2px 0 #000,
+    2px 2px 0 #000;
+}
 h5 {
     font-family: TTSquares;
     font-size: 5.0em;
@@ -184,7 +193,7 @@ footer {
     text-decoration: none;
 }
 * {
-    font-family: Burbank, sans-serif;
+    font-family: TTSquares, sans-serif;
 }
 @media (max-width:991px) {
     .align-text-center {
