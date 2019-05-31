@@ -80,7 +80,7 @@
         <div class="text-center">
             <h2 id="twitch-clips-title">Twitch Clips</h2>
         </div>
-        <div id="twitch-clip-thumbs" class="row uniform-height"></div>
+        <div id="twitch-clips" class="row uniform-height"></div>
     </div>
 
     <footer class="container-fluid text-center">
@@ -125,7 +125,8 @@
             $("#twitch-embed-title").css("display", "block");
         });
 
-        const thumbsEl = $("#twitch-clip-thumbs");
+        const thumbsEl = $("#twitch-clips");
+        const thumbsTitleEl = $("#twitch-clips-title");
         const twitchCid = "ex50kvm25k0omd6h01c2bjv5wj99q4"; // Twitch API client ID
         const twitchBid = 76813124; // And Broadcaster ID
 
@@ -148,6 +149,9 @@
 
                 thumbsEl.append(column);
             }
+
+            thumbsEl.css("display", "block");
+            thumbsTitleEl.css("display", "block");
         })
     </script>
 </body>

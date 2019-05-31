@@ -108,10 +108,6 @@ div font {
     max-height: 720px;
     border: #000 solid 4px;
 }
-#twitch-embed,
-#twitch-embed-title {
-    display: none;
-}
 .container { /* text paragraphs */
     margin: auto;
 }
@@ -287,7 +283,14 @@ footer {
   display: flex;
   flex-direction: column;
 }
-
 .fill-height {
     height: 100%;
+}
+
+/* Elements that need to be hidden until content is added */
+#twitch-embed,
+#twitch-embed-title,
+#twitch-clips,
+#twitch-clips-title {
+    display: none;
 }
