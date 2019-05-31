@@ -6,8 +6,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
-        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
+        integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="styles/styles.css">
@@ -116,7 +116,7 @@
 
     <!-- Create a Twitch.Embed object that will render within the "twitch-embed" root element. -->
     <script type="text/javascript">
-        const embed = new Twitch.Embed("twitch-embed", {
+        const twitchEmbed = new Twitch.Embed("twitch-embed", {
             width: 1920,
             height: 1080,
             channel: "AugmentEcho",
@@ -124,9 +124,9 @@
             theme: "dark"
         });
 
-        embed.addEventListener(Twitch.Embed.VIDEO_READY, () => {
-            document.getElementById("twitch-embed").style.display = "block";
-            document.getElementById("twitch-embed-title").style.display = "block";
+        twitchEmbed.addEventListener(Twitch.Embed.VIDEO_READY, () => {
+            $("#twitch-embed").css("display", "block");
+            $("#twitch-embed-title").css("display", "block");
         });
     </script>
 </body>
