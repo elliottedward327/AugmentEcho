@@ -13,11 +13,13 @@
 .navbar {
     margin-bottom: 0;
     border-radius: 0;
-    background-color: #404040;
+    background-color: #252525;
     color: #FFF;
     padding: 1% 0;
     font-size: 1.6em;
-    border: 2px solid #000;
+    border: none;
+    border-bottom: 2px solid #000;
+    border-top: 2px solid #000;
     text-shadow:
     -1px -1px 0 #000,
     1px -1px 0 #000,
