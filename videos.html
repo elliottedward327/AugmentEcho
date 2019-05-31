@@ -96,7 +96,8 @@
                 <a href="https://www.youtube.com/AugmentEcho" target="_blank" i class="fab fa-youtube"></a>
                 <a href="https://www.twitch.tv/AugmentEcho" target="_blank" i class="fab fa-twitch"></a>
                 <a href="https://discord.gg/vbWyfMX" target="_blank" i class="fab fa-discord"></a>
-                <a href="https://account.xbox.com/en-US/Profile?gamerTag=Augment_Echo" target="_blank" i class="fab fa-xbox"></a>
+                <a href="https://account.xbox.com/en-US/Profile?gamerTag=Augment_Echo" target="_blank" i
+                    class="fab fa-xbox"></a>
                 <a href="https://www.reddit.com/u/AugmentEcho" target="_blank" i class="fab fa-reddit-alien"></a>
             </div>
             <div class="col-sm-4">
@@ -123,6 +124,23 @@
             $("#twitch-embed").css("display", "block");
             $("#twitch-embed-title").css("display", "block");
         });
+
+        const thumbsEl = $("#twitch-clip-thumbs");
+        const twitchCid = "ex50kvm25k0omd6h01c2bjv5wj99q4";
+
+        $.get({
+            url: "https://api.twitch.tv/helix/users",
+            data: { login: "AugmentEcho" },
+            headers: { "Client-ID": twitchCid }
+        }).then(response => {
+            return $.get({
+                url: "https://api.twitch.tv/helix/clips",
+                data: { first: 5, broadcaster_id: response.data[0].id },
+                headers: { "Client-ID": twitchCid }
+            })
+        }).then(response => {
+            console.log(response);
+        })
     </script>
 </body>
 
