@@ -126,18 +126,13 @@
         });
 
         const thumbsEl = $("#twitch-clip-thumbs");
-        const twitchCid = "ex50kvm25k0omd6h01c2bjv5wj99q4";
+        const twitchCid = "ex50kvm25k0omd6h01c2bjv5wj99q4"; // Twitch API client ID
+        const twitchBid = 76813124; // And Broadcaster ID
 
         $.get({
-            url: "https://api.twitch.tv/helix/users",
-            data: { login: "AugmentEcho" },
+            url: "https://api.twitch.tv/helix/clips",
+            data: { first: 6, broadcaster_id: twitchBid },
             headers: { "Client-ID": twitchCid }
-        }).then(response => {
-            return $.get({
-                url: "https://api.twitch.tv/helix/clips",
-                data: { first: 6, broadcaster_id: response.data[0].id },
-                headers: { "Client-ID": twitchCid }
-            })
         }).then(response => {
             for (clip of response.data) {
                 let column = $("<div></div>").addClass("col-sm-6 col-md-4");
