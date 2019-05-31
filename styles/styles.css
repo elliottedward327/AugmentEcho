@@ -269,3 +269,17 @@ footer {
     border-radius: 5px;
     height: 10px;
 }
+
+/* Fix for bootstrap's columns being various heights when wrapping responsively */
+.row.uniform-height {
+  display: flex;
+  flex-wrap: wrap;
+}
+.row.uniform-height > [class*="col-"] {
+  display: flex;
+  flex-direction: column;
+}
+
+.fill-height {
+    height: 100%;
+}

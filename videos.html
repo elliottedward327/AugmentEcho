@@ -80,7 +80,7 @@
         <div class="text-center">
             <h5>Twitch Clips</h5>
         </div>
-        <div id="twitch-clip-thumbs"></div>
+        <div id="twitch-clip-thumbs" class="row uniform-height"></div>
     </div>
 
     <footer class="container-fluid text-center">
@@ -140,16 +140,18 @@
             })
         }).then(response => {
             for (clip of response.data) {
-                let a = $("<a></a>");
-                let img = $("<img></img>");
+                let column = $("<div></div>").addClass("col-sm-6 col-md-4");
+                let anchor = $("<a></a>").addClass("thumbnail fill-height").attr("href", clip.url).attr("target", "_blank");
+                let image = $("<img></img>").attr("src", clip.thumbnail_url).attr("alt", clip.title);
+                let caption = $("<div></div>").addClass("caption");
+                let title = $("<p></p>").text(clip.title);
 
-                a.attr("href", clip.url);
-                img.attr("src", clip.thumbnail_url);
-                img.attr("alt", clip.title);
+                anchor.append(image);
+                caption.append(title);
+                anchor.append(caption);
+                column.append(anchor);
 
-                a.append(img);
-
-                thumbsEl.append(a);
+                thumbsEl.append(column);
             }
         })
     </script>
