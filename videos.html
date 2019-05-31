@@ -135,7 +135,7 @@
             headers: { "Client-ID": twitchCid }
         }).then(response => {
             for (clip of response.data) {
-                let column = $("<div></div>").addClass("col-sm-6 col-md-4");
+                let column = $("<div></div>").addClass("col-xs-8 col-sm-6 col-md-4 col-sm-offset-0 col-xs-offset-2");
                 let anchor = $("<a></a>").addClass("thumbnail fill-height").attr("href", clip.url).attr("target", "_blank");
                 let image = $("<img></img>").attr("src", clip.thumbnail_url).attr("alt", clip.title);
                 let caption = $("<div></div>").addClass("caption");
