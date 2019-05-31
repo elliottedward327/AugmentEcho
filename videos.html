@@ -135,11 +135,22 @@
         }).then(response => {
             return $.get({
                 url: "https://api.twitch.tv/helix/clips",
-                data: { first: 5, broadcaster_id: response.data[0].id },
+                data: { first: 6, broadcaster_id: response.data[0].id },
                 headers: { "Client-ID": twitchCid }
             })
         }).then(response => {
-            console.log(response);
+            for (clip of response.data) {
+                let a = $("<a></a>");
+                let img = $("<img></img>");
+
+                a.attr("href", clip.url);
+                img.attr("src", clip.thumbnail_url);
+                img.attr("alt", clip.title);
+
+                a.append(img);
+
+                thumbsEl.append(a);
+            }
         })
     </script>
 </body>
