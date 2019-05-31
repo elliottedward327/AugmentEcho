@@ -294,3 +294,10 @@ footer {
 #twitch-clips-title {
     display: none;
 }
+.thumbnail {
+    background-color: #252525;
+    border-color: #000;
+}
+.thumbnail * {
+    color: #fff;
+}
