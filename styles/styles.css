@@ -303,3 +303,12 @@ footer {
 .thumbnail * {
     color: #fff;
 }
+
+.styled-link {
+    color: #F05300;
+    /* text-decoration: none; */
+    text-shadow: -1px -1px 0 #000,
+                  1px -1px 0 #000,
+                 -1px  1px 0 #000,
+                  1px  1px 0 #000;
+}
