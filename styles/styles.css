@@ -108,10 +108,6 @@ div font {
     max-height: 720px;
     border: #000 solid 4px;
 }
-#twitch-embed,
-#twitch-embed-title {
-    display: none;
-}
 .container { /* text paragraphs */
     margin: auto;
 }
@@ -134,25 +130,15 @@ p {
     font-size: 1.25em;
     font-family: Arial, Helvetica, sans-serif;
 }
+h1 {
+    font-size: 6.0em;
+    text-shadow:
+    -2px -2px 0 #000,
+    2px -2px 0 #000,
+    -2px 2px 0 #000,
+    2px 2px 0 #000;
+}
 h2 {
-    font-size: 5.0em;
-    text-shadow:
-    -2px -2px 0 #000,
-    2px -2px 0 #000,
-    -2px 2px 0 #000,
-    2px 2px 0 #000;
-}
-h6 {
-    font-family: Burbank;
-    font-size: 5.0em;
-    text-shadow:
-    -2px -2px 0 #000,
-    2px -2px 0 #000,
-    -2px 2px 0 #000,
-    2px 2px 0 #000;
-}
-h5 {
-    font-family: TTSquares;
     font-size: 5.0em;
     text-shadow:
     -2px -2px 0 #000,
@@ -169,7 +155,25 @@ h3 {
     2px 2px 0 #000;
 }
 h4 {
+    font-size: 3.0em;
+    text-shadow:
+    -2px -2px 0 #000,
+    2px -2px 0 #000,
+    -2px 2px 0 #000,
+    2px 2px 0 #000;
+}
+h5 {
+    font-family: TTSquares;
     font-size: 2.0em;
+    text-shadow:
+    -2px -2px 0 #000,
+    2px -2px 0 #000,
+    -2px 2px 0 #000,
+    2px 2px 0 #000;
+}
+h6 {
+    font-family: Burbank;
+    font-size: 1.0em;
     text-shadow:
     -2px -2px 0 #000,
     2px -2px 0 #000,
@@ -268,4 +272,32 @@ footer {
 .carousel-indicators > li, .carousel-indicators > li.active {
     border-radius: 5px;
     height: 10px;
+}
+
+/* Fix for bootstrap's columns being various heights when wrapping responsively */
+.row.uniform-height {
+  display: flex;
+  flex-wrap: wrap;
+}
+.row.uniform-height > [class*="col-"] {
+  display: flex;
+  flex-direction: column;
+}
+.fill-height {
+    height: 100%;
+}
+
+/* Elements that need to be hidden until content is added */
+#twitch-embed,
+#twitch-embed-title,
+#twitch-clips,
+#twitch-clips-title {
+    display: none;
+}
+.thumbnail {
+    background-color: #252525;
+    border-color: #000;
+}
+.thumbnail * {
+    color: #fff;
 }
