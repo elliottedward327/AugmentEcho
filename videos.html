@@ -6,8 +6,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
-        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
+        integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="styles/styles.css">
@@ -46,7 +46,7 @@
 
     <div class="container">
         <div class="text-center">
-            <h5>The Reel</h5>
+            <h2>The Reel</h2>
         </div>
         <div class="videoWrapper">
             <iframe src="https://www.youtube.com/embed?listType=playlist&list=PLQPb3bQsjrt5Jr2_yLQdATmIINlwJgfta"
@@ -64,7 +64,7 @@
         </div>
         <br>
         <div class="text-center">
-            <h5>Apex Legends Episodes</h5>
+            <h2>Apex Legends Episodes</h2>
         </div>
         <div class="videoWrapper">
             <iframe src="https://www.youtube.com/embed?listType=playlist&list=PLQPb3bQsjrt48eEhDtPV_g4QKUy-25Mo-"
@@ -76,17 +76,12 @@
             <h2 id="twitch-embed-title">Live on Twitch</h2>
         </div>
         <div id="twitch-embed" class="videoWrapper"></div>
+        <br>
+        <div class="text-center">
+            <h2 id="twitch-clips-title">Twitch Clips</h2>
+        </div>
+        <div id="twitch-clips" class="row uniform-height"></div>
     </div>
-    <br>
-    <div class="text-center">
-        <p>
-            <a href="https://www.twitch.tv/augmentecho/clips" style="font-size: 80px; color: #F05300;
-            text-decoration: none; text-shadow: -1px -1px 0 #000,
-            1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">Twitch
-                Clips</a>
-        </p>
-    </div>
-    <br>
 
     <footer class="container-fluid text-center">
         <div class="row">
@@ -101,7 +96,8 @@
                 <a href="https://www.youtube.com/AugmentEcho" target="_blank" i class="fab fa-youtube"></a>
                 <a href="https://www.twitch.tv/AugmentEcho" target="_blank" i class="fab fa-twitch"></a>
                 <a href="https://discord.gg/vbWyfMX" target="_blank" i class="fab fa-discord"></a>
-                <a href="https://account.xbox.com/en-US/Profile?gamerTag=Augment_Echo" target="_blank" i class="fab fa-xbox"></a>
+                <a href="https://account.xbox.com/en-US/Profile?gamerTag=Augment_Echo" target="_blank" i
+                    class="fab fa-xbox"></a>
                 <a href="https://www.reddit.com/u/AugmentEcho" target="_blank" i class="fab fa-reddit-alien"></a>
             </div>
             <div class="col-sm-4">
@@ -116,7 +112,7 @@
 
     <!-- Create a Twitch.Embed object that will render within the "twitch-embed" root element. -->
     <script type="text/javascript">
-        const embed = new Twitch.Embed("twitch-embed", {
+        const twitchEmbed = new Twitch.Embed("twitch-embed", {
             width: 1920,
             height: 1080,
             channel: "AugmentEcho",
@@ -124,10 +120,39 @@
             theme: "dark"
         });
 
-        embed.addEventListener(Twitch.Embed.VIDEO_READY, () => {
-            document.getElementById("twitch-embed").style.display = "block";
-            document.getElementById("twitch-embed-title").style.display = "block";
+        twitchEmbed.addEventListener(Twitch.Embed.VIDEO_READY, () => {
+            $("#twitch-embed").css("display", "block");
+            $("#twitch-embed-title").css("display", "block");
         });
+
+        const thumbsEl = $("#twitch-clips");
+        const thumbsTitleEl = $("#twitch-clips-title");
+        const twitchCid = "41teo1v6xlaokjhx1ubsvmnk0bgh8q"; // Twitch API client ID
+        const twitchBid = 76813124; // And Broadcaster ID
+
+        $.get({
+            url: "https://api.twitch.tv/helix/clips",
+            data: { first: 6, broadcaster_id: twitchBid },
+            headers: { "Client-ID": twitchCid }
+        }).then(response => {
+            for (clip of response.data) {
+                let column = $("<div></div>").addClass("col-xs-8 col-sm-6 col-md-4 col-sm-offset-0 col-xs-offset-2");
+                let anchor = $("<a></a>").addClass("thumbnail fill-height").attr("href", clip.url).attr("target", "_blank");
+                let image = $("<img></img>").attr("src", clip.thumbnail_url).attr("alt", clip.title);
+                let caption = $("<div></div>").addClass("caption");
+                let title = $("<p></p>").text(clip.title);
+
+                anchor.append(image);
+                caption.append(title);
+                anchor.append(caption);
+                column.append(anchor);
+
+                thumbsEl.append(column);
+            }
+
+            thumbsEl.css("display", "block");
+            thumbsTitleEl.css("display", "block");
+        })
     </script>
 </body>
 
