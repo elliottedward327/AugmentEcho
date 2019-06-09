@@ -313,3 +313,19 @@ footer {
                  -1px  1px 0 #000,
                   1px  1px 0 #000;
 }
+.font-ttsquares,
+.font-ttsquares * {
+    font-family: TTSquares !important;
+}
+.font-burbank,
+.font-burbank * {
+    font-family: Burbank !important;
+}
+.font-ethnocentric,
+.font-ethnocentric * {
+    font-family: Ethnocentric !important;
+}
+.font-reset, /* Reset to bs4 defaults */
+.font-reset * {
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+}
