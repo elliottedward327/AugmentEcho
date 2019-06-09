@@ -13,11 +13,13 @@
 .navbar {
     margin-bottom: 0;
     border-radius: 0;
-    background-color: #404040;
+    background-color: #333333;
     color: #FFF;
     padding: 1% 0;
     font-size: 1.6em;
-    border: 2px solid #000;
+    border: none;
+    border-bottom: 2px solid #000;
+    border-top: 2px solid #000;
     text-shadow:
     -1px -1px 0 #000,
     1px -1px 0 #000,
@@ -182,10 +184,11 @@ h6 {
 }
 footer {
     width: 100%;
-    background: #404040;
+    background: #333333;
     padding: 2%;
     color: #FFF;
-    border: 2px solid #000;
+    border-top: 2px solid #000;
+    border-bottom: 2px solid #000;
 }
 .fab {
     padding: 15px;
@@ -295,9 +298,34 @@ footer {
     display: none;
 }
 .thumbnail {
-    background-color: #252525;
+    background-color: #333333;
     border-color: #000;
 }
 .thumbnail * {
     color: #fff;
+}
+
+.styled-link {
+    color: #F05300;
+    /* text-decoration: none; */
+    text-shadow: -1px -1px 0 #000,
+                  1px -1px 0 #000,
+                 -1px  1px 0 #000,
+                  1px  1px 0 #000;
+}
+.font-ttsquares,
+.font-ttsquares * {
+    font-family: TTSquares !important;
+}
+.font-burbank,
+.font-burbank * {
+    font-family: Burbank !important;
+}
+.font-ethnocentric,
+.font-ethnocentric * {
+    font-family: Ethnocentric !important;
+}
+.font-reset, /* Reset to bs4 defaults */
+.font-reset * {
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
 }
