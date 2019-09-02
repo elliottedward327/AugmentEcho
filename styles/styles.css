@@ -158,7 +158,7 @@ h3 {
     2px 2px 0 #000;
 }
 h4 {
-    font-size: 1.5em;
+    font-size: 1.25em;
     text-shadow:
     -2px -2px 0 #000,
     2px -2px 0 #000,
@@ -225,9 +225,12 @@ footer {
         text-align: center;
     }
 }
-@media (max-width: 600px) {
+@media (max-width: 800px) {
     .carousel-caption {
         display: none;
+    }
+    .navbar {
+        font-size: 1.0em;
     }
     #icon {
         max-width: 250px;
@@ -236,7 +239,52 @@ footer {
         font-size: 5.0em;
     }
     h3 {
-        font-size: 4.0em;
+        font-size: 2.0em;
+    }
+    h4 {
+        font-size: 1.0em;
+    }
+    .align-text-center {
+        text-align: center;
+    }
+    .carousel-indicators li {
+        display: inline-block;
+        width: 10px;
+        height: 2.5px;
+        margin: 5px;
+        text-indent: 0;
+        cursor: pointer;
+        border: #FFF solid 1px;
+        border-radius: 10%;
+        background-color: rgba(255, 0, 0, 0);
+        list-style-type: square;
+    }
+    .carousel-indicators .active {
+        width: 10px;
+        height: 3.5px;
+        margin: 5px;
+        background-color: #F05300;
+        border: #F05300 solid 1px;
+    }
+}
+@media (max-width: 600px) {
+    .carousel-caption {
+        display: none;
+    }
+    .navbar {
+        font-size: 1.0em;
+    }
+    #icon {
+        max-width: 250px;
+    }
+    h2 {
+        font-size: 5.0em;
+    }
+    h3 {
+        font-size: 2.0em;
+    }
+    h4 {
+        font-size: 1.0em;
     }
     .align-text-center {
         text-align: center;
