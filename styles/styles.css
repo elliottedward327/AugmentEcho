@@ -191,13 +191,22 @@ h7 {
     -2px 2px 0 #000,
     2px 2px 0 #000;
 }
-footer {
+#page-container {
+    position: relative;
+    min-height: 100vh;
+}
+#content-wrap {
+    padding-bottom: 2.5rem;    /* Footer height */
+}
+#footer {
     width: 100%;
-    background: #333333;
-    padding: 2%;
+    padding: 1%;
     color: #FFF;
     border-top: 2px solid #000;
-    border-bottom: 2px solid #000;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 2.5rem;
 }
 .fab {
     padding: 15px;
